@@ -33,15 +33,16 @@ const char * fragmentSource = // fragment shader
 void init(void)
 {
 	
+	glClearColor(1.f, 1.f, 1.f, 1.f);
 			glGenVertexArrays(NumVAOs, VAOs);
 			glBindVertexArray(VAOs[Triangles]);
-			GLfloat vertices[NumVertices][2] = {
-				{ -0.90, -0.90 }, // Triangle 1
-				{ 0.85, -0.90 },
-				{ -0.90, 0.85 },
-				{ 0.90, -0.85 }, // Triangle 2
-				{ 0.90, 0.90 },
-				{ -0.85, 0.90 }
+			GLfloat vertices[NumVertices][3] = {
+				{ -0.90, -0.90, 0.85 }, // Triangle 1
+				{ 0.85, -0.90, 0.85 },
+				{ -0.90, 0.85, 0.85 },
+				{ 0.90, -0.85, 0.85 }, // Triangle 2
+				{ 0.90, 0.90, 0.85 },
+				{ -0.85, 0.90, 0.85 }
 			};
 			glGenBuffers(NumBuffers, Buffers);
 			glBindBuffer(GL_ARRAY_BUFFER, Buffers[ArrayBuffer]);
@@ -56,7 +57,7 @@ void init(void)
 			
 			GLuint program = LoadShaders(shaders);
 			glUseProgram(program);
-			glVertexAttribPointer(vPosition, 2, GL_FLOAT,
+			glVertexAttribPointer(vPosition, 3, GL_FLOAT,
 				GL_FALSE, 0, BUFFER_OFFSET(0));
 			glEnableVertexAttribArray(vPosition);
 		
@@ -64,6 +65,7 @@ void init(void)
 void display(void)
 {
 	glClear(GL_COLOR_BUFFER_BIT);
+	
 	glBindVertexArray(VAOs[Triangles]);
 	glDrawArrays(GL_TRIANGLES, 0, NumVertices);
 	glFlush();

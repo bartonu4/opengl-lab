@@ -1,4 +1,4 @@
-﻿Build started 16.11.2015 17:32:36.
+﻿Build started 16.11.2015 23:03:22.
      1>Project "F:\WORKSPACE\opengl-lab\opengl-lab\olengl-lab.vcxproj" on node 2 (Build target(s)).
      1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(381,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (olengl-lab.vcxproj).  This can lead to incorrect clean and rebuild behavior.
      1>ClCompile:
@@ -6,7 +6,7 @@
          olengl-lab.cpp
      1>f:\workspace\opengl-lab\opengl-lab\includes\loadshaders.h(102): warning C4190: 'getShaderFromFile' has C-linkage specified, but returns UDT 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' which is incompatible with C
      1>f:\workspace\opengl-lab\opengl-lab\includes\loadshaders.h(104): warning C4101: 'byte' : unreferenced local variable
-     1>f:\workspace\opengl-lab\opengl-lab\olengl-lab.cpp(45): warning C4305: 'initializing' : truncation from 'double' to 'GLfloat'
+     1>f:\workspace\opengl-lab\opengl-lab\olengl-lab.cpp(46): warning C4305: 'initializing' : truncation from 'double' to 'GLfloat'
        Link:
          F:\Program Files\Visual Studio\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"F:\WORKSPACE\opengl-lab\opengl-lab\Debug\opengl-lab.exe" /INCREMENTAL /NOLOGO "F:\WORKSPACE\opengl-lab\opengl-lab\packages\nupengl.core.0.1.0.1\build\native\../..//build/native/lib/Win32\glew32.lib" "F:\WORKSPACE\opengl-lab\opengl-lab\packages\nupengl.core.0.1.0.1\build\native\../..//build/native/lib/Win32\glfw3dll.lib" "F:\WORKSPACE\opengl-lab\opengl-lab\packages\nupengl.core.0.1.0.1\build\native\../..//build/native/lib/Win32\freeglut.lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"F:\WORKSPACE\opengl-lab\opengl-lab\Debug\opengl-lab.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"F:\WORKSPACE\opengl-lab\opengl-lab\Debug\opengl-lab.lib" /MACHINE:X86 "Debug\olengl-lab.obj"
          Debug\stdafx.obj
@@ -15,4 +15,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:01.07
+Time Elapsed 00:00:00.95
