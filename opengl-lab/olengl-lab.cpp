@@ -47,6 +47,8 @@ void init(void)
 			glBindBuffer(GL_ARRAY_BUFFER, Buffers[ArrayBuffer]);
 			glBufferData(GL_ARRAY_BUFFER, sizeof(vertices),
 				vertices, GL_STATIC_DRAW);
+			
+			
 			ShaderInfo shaders[] = {
 				{ GL_FRAGMENT_SHADER, getShaderFromFile("shaders/tri.frag") }, 
 				{ GL_VERTEX_SHADER, getShaderFromFile("shaders/tri.vert")} 

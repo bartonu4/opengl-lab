@@ -65,5 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="shaders\tri.frag" />
+    <None Include="shaders\tri.vert" />
   </ItemGroup>
 </Project>

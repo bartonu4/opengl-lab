@@ -1,2 +1,4 @@
 #ignore temp file
-olengl-lab/olengl-lab.opensdf
+opengl-lab/opengl-lab.opensdf
+#ignore file
+opengl-lab/debug/*

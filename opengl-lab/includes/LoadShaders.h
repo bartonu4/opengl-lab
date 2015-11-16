@@ -11,6 +11,7 @@
 #include <fstream>
 #include <iostream>
 #include <string>
+#include <sstream>
 using std::ifstream;
 using std::string;
 #ifdef __cplusplus
@@ -33,7 +34,7 @@ extern "C" {
 
 typedef struct {
     GLenum       type;
-    const char*  filename;
+    string  filetext;
     GLuint       shader;
 } ShaderInfo;
 
@@ -47,10 +48,14 @@ GLuint LoadShaders(ShaderInfo *shaderinfo)
 	{
 		
 		GLuint shader = glCreateShader(shaderinfo[i].type);
-		GLint   len = strlen(shaderinfo[i].filename);
+		GLint   len = strlen(shaderinfo[i].filetext.c_str());
 		GLint   compileStatus;
-
-		glShaderSource(shader, 1, &shaderinfo[i].filename, &len);
+		printf(shaderinfo[i].filetext.c_str());
+		
+		/*char *text = new char[shaderinfo[i].filetext.size()];
+		strcpy(text, shaderinfo[i].filetext.c_str());*/
+		const char * text = shaderinfo[i].filetext.c_str();
+		glShaderSource(shader, 1, &(text), &len);
 		//printf(shaderinfo[i].filename);
 		// compile the shader
 		glCompileShader(shader);
@@ -89,21 +94,20 @@ GLuint LoadShaders(ShaderInfo *shaderinfo)
 	
 }
 
-const char * getShaderFromFile(char * filename)
-{
-	ifstream fs(filename, ifstream::in);
-	char byte;
-	string text;
-	while (fs.get(byte))
-	{
-		text.push_back(byte);
-	}
-	std::cout << text.c_str();
-	return text.c_str();
-}
+
 //----------------------------------------------------------------------------
 
 #ifdef __cplusplus
+string getShaderFromFile(char * filename)
+{
+	ifstream fs(filename, ifstream::in);
+	char byte;
+
+	std::stringstream filestream;
+	filestream << fs.rdbuf();
+	//std::cout << filestream.str().c_str();
+	return filestream.str();
+}
 };
 #endif // __cplusplus
 
