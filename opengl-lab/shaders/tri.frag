@@ -1,8 +1,10 @@
 #version 330
-out vec4 fColor;
 
-void
-main()
+in vec4 vs_fs_color;
+
+layout (location = 0) out vec4 color;
+
+void main(void)
 {
-  fColor = vec4(0.32, 0.63, 0.65, 1.0);
+    color = vs_fs_color;
 }
