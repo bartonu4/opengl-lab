@@ -84,7 +84,10 @@ GLuint LoadShaders(ShaderInfo *shaderinfo)
 	if (!linked)
 	{
 		printf("Error linking program\n");
-
+		int maxLength=200;
+		std::vector<GLchar> infoLog(maxLength);
+		glGetProgramInfoLog(program, maxLength, &maxLength, &infoLog[0]);
+		printf(infoLog.data());
 		return 0;
 	}
 
