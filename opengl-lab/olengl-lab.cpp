@@ -74,8 +74,8 @@ void init(void)
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(cube_indices), cube_indices, GL_STATIC_DRAW);*/
 
 	// Set up the vertex attributes
-	int sizeOfVertices = vertices.size()*3;
-	int sizeOfUv = uvs.size()*2;
+	int sizeOfVertices = vertices.size()*sizeof(glm::vec3);
+	int sizeOfUv = uvs.size()*sizeof(glm::vec2);
 	sizeOfVerticesB = sizeOfVertices;
 	float *vert = new float[sizeOfVerticesB];
 	float *uv = new float[sizeOfUv];
@@ -83,24 +83,7 @@ void init(void)
 	for (int i = 0; i < vertices.size(); i++)
 	{
 		//cout << vertices[i].x << " " << " " << i << "\n";
-		 
-		for (int j = previous; j < previous + 3;j++)
-		{
-			int j_ind = j % 3;
-			vert[j] = (vertices[i])[j_ind];
-		}
-		previous = (i+1) * 3;
-	}
-	previous = 0;
-	for (int i = 0; i < uvs.size();i++)
-	{
-		for (int j = previous; j < previous + 2; j++)
-		{
-			int j_ind = j % 2;
-			uv[j] = (uvs[i])[j_ind];
-		}
-		previous = (i + 1) * 2;
-	}
+
 	
 
 	glGenVertexArrays(1, vao);
@@ -111,8 +94,8 @@ void init(void)
 
 	
 	glBufferData(GL_ARRAY_BUFFER,  sizeOfVertices + sizeOfUv, NULL, GL_STATIC_DRAW);
-	glBufferSubData(GL_ARRAY_BUFFER, 0, sizeOfVertices, vert);
-	glBufferSubData(GL_ARRAY_BUFFER,sizeOfVertices,sizeOfUv , uv);
+	glBufferSubData(GL_ARRAY_BUFFER, 0, sizeOfVertices, &vertices[0]);
+	glBufferSubData(GL_ARRAY_BUFFER,sizeOfVertices,sizeOfUv , &uvs[0]);
 	
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, NULL);
 	glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 0, &sizeOfVertices);
@@ -157,7 +140,7 @@ void init(void)
 		0.0f, 0.0f, 0.0f
 	};
 
-	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, 2, 2, 0, GL_RGB, GL_FLOAT, pixels);
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, image);
 
 	glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
 	glTexParameterfv(GL_TEXTURE_2D, GL_TEXTURE_BORDER_COLOR, red);
@@ -183,7 +166,7 @@ void display(void)
 	const vec3 X(1.0, 0.0, 0.0);
 	const vec3 Y(0.0, 1.0, 0.0);
 	const vec3 Z(0.0, 0.0, 1.0);
-	mat4 rotation_matrix = glm::rotate(mat4(1.0f), angle * 360, Y)*glm::rotate(mat4(1.0f), angle*720, Z);
+	mat4 rotation_matrix = glm::rotate(mat4(1.0f), angle * 360, Y);//*glm::rotate(mat4(1.0f), angle*720, Z);
 	mat4 model_matrix = (glm::translate(mat4(1.0f), vec3(0.0f, 0.0f, -5.0f)) *rotation_matrix);
 	mat4 proj_matrix = glm::frustum(-1.0f, 1.0f, aspect, -aspect, 1.0f, 500.0f);
 	
@@ -192,7 +175,7 @@ void display(void)
 	
 	glDrawArrays(GL_TRIANGLES, 0, sizeOfVerticesB);
 	gl_error();
-	//glutSwapBuffers();
+	glutSwapBuffers();
 	
 }
 int _tmain(int argc, char * argv[])
@@ -229,5 +212,5 @@ void timer(int value)
 	angle+=10;
 	//printf("nu4");
 	glutPostRedisplay();
-	glutTimerFunc(40, timer, 0);
+	glutTimerFunc(100, timer, 0);
 }
