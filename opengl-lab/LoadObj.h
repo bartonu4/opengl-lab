@@ -29,12 +29,13 @@ class LoadObj
 {
 private:
 	string filename;
-	vector<vec3f> vertices;
-	vector < vec2f> uvs;
-	vector < vec3f> normales;
+	
 public:
 	LoadObj();
 	LoadObj(string name) :filename(name){};
 	bool loadObj();
-	~LoadObj();
+	~LoadObj(); 
+	vector<vec3f> vertices;
+	vector < vec2f> uvs;
+	vector < vec3f> normales;
 };

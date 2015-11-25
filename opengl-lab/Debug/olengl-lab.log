@@ -1,19 +1,29 @@
-﻿Build started 25.11.2015 19:42:43.
-     1>Project "F:\WORKSPACE\opengl-lab\opengl-lab\olengl-lab.vcxproj" on node 2 (Build target(s)).
-     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(381,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (olengl-lab.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+﻿Сборка начата 25.11.2015 19:55:10.
+     1>Проект "E:\LABS\opengl-lab\opengl-lab\olengl-lab.vcxproj" в узле 2 (целевые объекты Build).
+     1>C:\Program Files\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(381,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (olengl-lab.vcxproj).  This can lead to incorrect clean and rebuild behavior.
      1>ClCompile:
-         F:\Program Files\Visual Studio\VC\bin\CL.exe /c /I"F:\WORKSPACE\opengl-lab\opengl-lab\packages\glm.0.9.7.1\build\native\../..//build/native/include/" /I"F:\WORKSPACE\opengl-lab\opengl-lab\packages\nupengl.core.0.1.0.1\build\native\../..//build/native/include/" /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt LoadObj.cpp
+         C:\Program Files\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"E:\LABS\opengl-lab\opengl-lab\packages\glm.0.9.7.1\build\native\../..//build/native/include/" /I"E:\LABS\opengl-lab\opengl-lab\packages\nupengl.core.0.1.0.1\build\native\../..//build/native/include/" /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt LoadObj.cpp objloader.cpp "olengl-lab.cpp"
+         olengl-lab.cpp
+     1>e:\labs\opengl-lab\opengl-lab\includes\loadshaders.h(105): warning C4190: для "getShaderFromFile" задана С-компоновка, но возвращаемый тип UDT "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" несовместим с языком Си
+     1>e:\labs\opengl-lab\opengl-lab\includes\loadshaders.h(107): warning C4101: byte: неиспользованная локальная переменная
+     1>e:\labs\opengl-lab\opengl-lab\olengl-lab.cpp(152): warning C4018: <: несоответствие типов со знаком и без знака
+     1>e:\labs\opengl-lab\opengl-lab\olengl-lab.cpp(110): warning C4101: a: неиспользованная локальная переменная
+         Создание кода...
+         Компиляция...
          LoadObj.cpp
-     1>f:\workspace\opengl-lab\opengl-lab\loadobj.cpp(31): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 f:\program files\visual studio\vc\include\stdio.h(304) : see declaration of 'sscanf'
-     1>f:\workspace\opengl-lab\opengl-lab\loadobj.cpp(37): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 f:\program files\visual studio\vc\include\stdio.h(304) : see declaration of 'sscanf'
-     1>f:\workspace\opengl-lab\opengl-lab\loadobj.cpp(43): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 f:\program files\visual studio\vc\include\stdio.h(304) : see declaration of 'sscanf'
-     1>f:\workspace\opengl-lab\opengl-lab\loadobj.cpp(52): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 f:\program files\visual studio\vc\include\stdio.h(304) : see declaration of 'sscanf'
+     1>e:\labs\opengl-lab\opengl-lab\loadobj.cpp(31): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 12.0\vc\include\stdio.h(304): см. объявление "sscanf"
+     1>e:\labs\opengl-lab\opengl-lab\loadobj.cpp(37): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 12.0\vc\include\stdio.h(304): см. объявление "sscanf"
+     1>e:\labs\opengl-lab\opengl-lab\loadobj.cpp(43): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 12.0\vc\include\stdio.h(304): см. объявление "sscanf"
+     1>e:\labs\opengl-lab\opengl-lab\loadobj.cpp(52): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 12.0\vc\include\stdio.h(304): см. объявление "sscanf"
+         Создание кода...
+         Пропуск... (изменения не обнаружены)
+         objloader.cpp
        Link:
-         F:\Program Files\Visual Studio\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"F:\WORKSPACE\opengl-lab\opengl-lab\Debug\opengl-lab.exe" /INCREMENTAL /NOLOGO "F:\WORKSPACE\opengl-lab\opengl-lab\packages\nupengl.core.0.1.0.1\build\native\../..//build/native/lib/Win32\glew32.lib" "F:\WORKSPACE\opengl-lab\opengl-lab\packages\nupengl.core.0.1.0.1\build\native\../..//build/native/lib/Win32\glfw3dll.lib" "F:\WORKSPACE\opengl-lab\opengl-lab\packages\nupengl.core.0.1.0.1\build\native\../..//build/native/lib/Win32\freeglut.lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"F:\WORKSPACE\opengl-lab\opengl-lab\Debug\opengl-lab.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"F:\WORKSPACE\opengl-lab\opengl-lab\Debug\opengl-lab.lib" /MACHINE:X86 Debug\image_DXT.obj
+         C:\Program Files\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"E:\LABS\opengl-lab\opengl-lab\Debug\opengl-lab.exe" /INCREMENTAL /NOLOGO "E:\LABS\opengl-lab\opengl-lab\packages\nupengl.core.0.1.0.1\build\native\../..//build/native/lib/Win32\glew32.lib" "E:\LABS\opengl-lab\opengl-lab\packages\nupengl.core.0.1.0.1\build\native\../..//build/native/lib/Win32\glfw3dll.lib" "E:\LABS\opengl-lab\opengl-lab\packages\nupengl.core.0.1.0.1\build\native\../..//build/native/lib/Win32\freeglut.lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:\LABS\opengl-lab\opengl-lab\Debug\opengl-lab.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:\LABS\opengl-lab\opengl-lab\Debug\opengl-lab.lib" /MACHINE:X86 Debug\image_DXT.obj
          Debug\image_helper.obj
          Debug\SOIL.obj
          Debug\stb_image_aug.obj
@@ -21,9 +31,10 @@
          Debug\objloader.obj
          "Debug\olengl-lab.obj"
          Debug\stdafx.obj
-         olengl-lab.vcxproj -> F:\WORKSPACE\opengl-lab\opengl-lab\Debug\opengl-lab.exe
-     1>Done Building Project "F:\WORKSPACE\opengl-lab\opengl-lab\olengl-lab.vcxproj" (Build target(s)).
+         LINK : не найден или не выполнена сборка E:\LABS\opengl-lab\opengl-lab\Debug\opengl-lab.exe при последней инкрементной компоновке; выполняется полная компоновка
+         olengl-lab.vcxproj -> E:\LABS\opengl-lab\opengl-lab\Debug\opengl-lab.exe
+     1>Сборка проекта "E:\LABS\opengl-lab\opengl-lab\olengl-lab.vcxproj" завершена (целевые объекты Build).
 
-Build succeeded.
+Сборка успешно завершена.
 
-Time Elapsed 00:00:00.97
+Затраченное время: 00:00:03.35

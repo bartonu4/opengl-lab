@@ -141,10 +141,10 @@ void init(void)
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(cube_indices), cube_indices, GL_STATIC_DRAW);*/
 
 	// Set up the vertex attributes
-	//int sizeOfVertices = vertices.size() * 3;
-	 int sizeOfVertices = vertices.size()*sizeof(glm::vec3);
-	//int sizeOfUv = uvs.size() * 2;
-	int sizeOfUv = uvs.size() *sizeof(glm::vec2);
+	int sizeOfVertices = vertices.size() * 3;
+	
+	int sizeOfUv = uvs.size() * 2;
+	
 	sizeOfVerticesB = sizeOfVertices;
 	float *vert = new float[sizeOfVerticesB];
 	float *uv = new float[sizeOfUv];
@@ -163,8 +163,8 @@ void init(void)
 
 
 		glBufferData(GL_ARRAY_BUFFER, sizeOfVertices + sizeOfUv, NULL, GL_STATIC_DRAW);
-		glBufferSubData(GL_ARRAY_BUFFER, 0, sizeOfVertices, &vertices[0]);
-		glBufferSubData(GL_ARRAY_BUFFER, sizeOfVertices, sizeOfUv, &uvs[0]);
+		glBufferSubData(GL_ARRAY_BUFFER, 0, sizeOfVertices, &loadObj.vertices[0]);
+		glBufferSubData(GL_ARRAY_BUFFER, sizeOfVertices, sizeOfUv, &loadObj.uvs[0]);
 
 		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, NULL);
 		glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 0, &sizeOfVertices);
