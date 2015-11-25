@@ -33,31 +33,13 @@
     <ClInclude Include="includes\mat.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="includes\vapp.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="includes\vbm.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="includes\vec.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="includes\vermilion.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="includes\vgl.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="includes\vmath.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="includes\vutils.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="objloader.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="includes\stb_image.h">
+    <ClInclude Include="includes\soil\SOIL.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LoadObj.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="includes\soil\image_DXT.h">
@@ -66,16 +48,13 @@
     <ClInclude Include="includes\soil\image_helper.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="includes\soil\SOIL.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="includes\soil\stb_image_aug.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="includes\soil\stbi_DDS_aug.h">
+    <ClInclude Include="includes\soil\stbi_DDS_aug_c.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="includes\soil\stbi_DDS_aug_c.h">
+    <ClInclude Include="includes\soil\stbi_DDS_aug.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -89,16 +68,19 @@
     <ClCompile Include="objloader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="includes\soil\image_DXT.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="includes\soil\image_helper.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="includes\soil\SOIL.c">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="includes\soil\stb_image_aug.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LoadObj.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="includes\soil\image_DXT.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="includes\soil\image_helper.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

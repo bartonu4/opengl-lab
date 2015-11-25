@@ -15,6 +15,7 @@
 #include "objloader.hpp"
 #include "includes/LoadShaders.h"
 #include <vector>
+#include "LoadObj.h"
 GLuint vao[1];
 GLuint vbo[1];
 GLuint ebo[1];
@@ -89,6 +90,20 @@ void gl_error()
 		printf("%s", str);
 		cerr << "opengl error: " << err << endl;
 	}
+	if (glDebugMessageCallback){
+		cout << "Register OpenGL debug callback " << endl;
+		glEnable(GL_DEBUG_OUTPUT_SYNCHRONOUS);
+		//glDebugMessageCallback(openglCallbackFunction, nullptr);
+		GLuint unusedIds = 0;
+		glDebugMessageControl(GL_DONT_CARE,
+			GL_DONT_CARE,
+			GL_DONT_CARE,
+			0,
+			&unusedIds,
+			true);
+	}
+	else
+		cout << "glDebugMessageCallback not available" << endl;
 }
 void init(void)
 {
@@ -102,7 +117,9 @@ void init(void)
 	std::vector< glm::vec3 > vertices;
 	std::vector< glm::vec2 > uvs;
 	std::vector< glm::vec3 > normals; // Won't be used at the moment.
-	bool res = loadOBJ("shaders/untitled.obj", vertices, uvs, normals);
+	bool res = loadOBJ("shaders/sphere.obj", vertices, uvs, normals);
+	LoadObj loadObj("shaders/cube.obj");
+	loadObj.loadObj();
 	if (!res)
 	{
 
@@ -124,8 +141,10 @@ void init(void)
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(cube_indices), cube_indices, GL_STATIC_DRAW);*/
 
 	// Set up the vertex attributes
-	int sizeOfVertices = vertices.size()*sizeof(glm::vec3);
-	int sizeOfUv = uvs.size()*sizeof(glm::vec2);
+	//int sizeOfVertices = vertices.size() * 3;
+	 int sizeOfVertices = vertices.size()*sizeof(glm::vec3);
+	//int sizeOfUv = uvs.size() * 2;
+	int sizeOfUv = uvs.size() *sizeof(glm::vec2);
 	sizeOfVerticesB = sizeOfVertices;
 	float *vert = new float[sizeOfVerticesB];
 	float *uv = new float[sizeOfUv];
@@ -178,19 +197,19 @@ void init(void)
 
 		const GLfloat red[] = { 1.0f, 0.0f, 0.0f, 1.0f }; // Opaque red.
 		// Set the GL_TEXTURE_BORDER_COLOR for the sampler object
-		glSamplerParameterfv(sampler, GL_TEXTURE_BORDER_COLOR, red);
+		//glSamplerParameterfv(sampler, GL_TEXTURE_BORDER_COLOR, red);
 		// Or alternatively, set the border color for a texture object.
 		// This will be used when a texture is bound to a texture unit
 		// without a corresponding sampler object.
 		glActiveTexture(GL_TEXTURE0);
 		float pixels[] = {
 			0.0f, 0.0f, 0.0f,
-			1.0f, 1.0f, 1.0f,
+			1.0f, 0.0f, 1.0f,
 			1.0f, 1.0f, 1.0f,
 			0.0f, 0.0f, 0.0f
 		};
 
-		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, image);
+		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, 2, 2, 0, GL_RGB, GL_FLOAT, pixels);
 
 		glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
 		glTexParameterfv(GL_TEXTURE_2D, GL_TEXTURE_BORDER_COLOR, red);
@@ -210,7 +229,7 @@ void init(void)
 
 		glEnable(GL_CULL_FACE);
 		glDisable(GL_DEPTH_TEST);
-
+		
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		float t = 0;
 		const vec3 X(1.0, 0.0, 0.0);
@@ -218,14 +237,16 @@ void init(void)
 		const vec3 Z(0.0, 0.0, 1.0);
 		mat4 rotation_matrix = glm::rotate(mat4(1.0f), angle * 360, Y);//*glm::rotate(mat4(1.0f), angle*720, Z);
 		mat4 model_matrix = (glm::translate(mat4(1.0f), vec3(0.0f, 0.0f, -50.0f)) *rotation_matrix);
-		mat4 proj_matrix = glm::frustum(-1.0f, 1.0f, aspect, -aspect, 1.0f, 500.0f);
+		mat4 rotate_proj = glm::rotate(mat4(1.0f), -90.0f, X);
+		mat4 proj_matrix =rotate_proj* glm::frustum(-1.0f, 1.0f, aspect, -aspect,20.0f, 500.0f);
 
 		glUniformMatrix4fv(model_matrix_uiform, 4, GL_FALSE, glm::value_ptr(model_matrix));
 		glUniformMatrix4fv(project_matrix_uniform, 1, GL_FALSE, glm::value_ptr(proj_matrix));
-
+		
 		glDrawArrays(GL_TRIANGLES, 0, sizeOfVerticesB);
-	   gl_error();
+		
 		glutSwapBuffers();
+		gl_error();
 		
 	}
 	int _tmain(int argc, char * argv[])
@@ -244,20 +265,7 @@ void init(void)
 			cerr << "Unable to initialize GLEW ... exiting" << endl;
 			exit(EXIT_FAILURE);
 		}
-		if (glDebugMessageCallback){
-			cout << "Register OpenGL debug callback " << endl;
-			glEnable(GL_DEBUG_OUTPUT_SYNCHRONOUS);
-			//glDebugMessageCallback(openglCallbackFunction, nullptr);
-			GLuint unusedIds = 0;
-			glDebugMessageControl(GL_DONT_CARE,
-				GL_DONT_CARE,
-				GL_DONT_CARE,
-				0,
-				&unusedIds,
-				true);
-		}
-		else
-			cout << "glDebugMessageCallback not available" << endl;
+	
 		init();
 		glutDisplayFunc(display);
 		glutReshapeFunc(reshape);

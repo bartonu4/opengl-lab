@@ -89,14 +89,7 @@
     <ClInclude Include="includes\soil\stbi_DDS_aug.h" />
     <ClInclude Include="includes\soil\stbi_DDS_aug_c.h" />
     <ClInclude Include="includes\soil\stb_image_aug.h" />
-    <ClInclude Include="includes\stb_image.h" />
-    <ClInclude Include="includes\vapp.h" />
-    <ClInclude Include="includes\vbm.h" />
-    <ClInclude Include="includes\vec.h" />
-    <ClInclude Include="includes\vermilion.h" />
-    <ClInclude Include="includes\vgl.h" />
-    <ClInclude Include="includes\vmath.h" />
-    <ClInclude Include="includes\vutils.h" />
+    <ClInclude Include="LoadObj.h" />
     <ClInclude Include="objloader.hpp" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
@@ -106,6 +99,7 @@
     <ClCompile Include="includes\soil\image_helper.c" />
     <ClCompile Include="includes\soil\SOIL.c" />
     <ClCompile Include="includes\soil\stb_image_aug.c" />
+    <ClCompile Include="LoadObj.cpp" />
     <ClCompile Include="objloader.cpp" />
     <ClCompile Include="olengl-lab.cpp" />
     <ClCompile Include="stdafx.cpp" />
